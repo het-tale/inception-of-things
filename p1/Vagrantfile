@@ -1,4 +1,23 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "hashicorp/bionic64"
+  config.vm.define "het-tale" do |vm1|
+    vm1.vm.box = "hashicorp/bionic64"
+    vm1.vm.hostname = "het-taleS"
+    vm1.vm.network "private_network", ip: "192.168.56.110"
+    vm1.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--cpus", "1"]
+      vb.customize ["modifyvm", :id, "--memory", "512"]
+    end
+    vm1.vm.provision "shell", path: "./scripts/v1.sh"
+  end
 
+  config.vm.define "het-tale" do |vm2|
+    vm2.vm.box = "hashicorp/bionic64"
+    vm2.vm.hostname = "het-taleSW"
+    vm2.vm.network "private_network", ip: "192.168.56.111"
+    vm2.vm.provider "virtualbox" do |vb|
+      vb.customize ["modifyvm", :id, "--cpus", "1"]
+      vb.customize ["modifyvm", :id, "--memory", "512"]
+    end
+    vm2.vm.provision "shell", path: "./scripts/v2.sh"
+  end
 end
