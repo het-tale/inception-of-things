@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.define "het-tale" do |vm1|
+  config.vm.define "het-taleS" do |vm1|
     vm1.vm.box = "hashicorp/bionic64"
     vm1.vm.hostname = "het-taleS"
     vm1.vm.network "private_network", ip: "192.168.56.110"
@@ -10,7 +10,7 @@ Vagrant.configure("2") do |config|
     vm1.vm.provision "shell", path: "./scripts/v1.sh"
   end
 
-  config.vm.define "het-tale" do |vm2|
+  config.vm.define "het-taleSW" do |vm2|
     vm2.vm.box = "hashicorp/bionic64"
     vm2.vm.hostname = "het-taleSW"
     vm2.vm.network "private_network", ip: "192.168.56.111"
