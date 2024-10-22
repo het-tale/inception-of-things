@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
   config.vm.define "het-taleS" do |vm1|
-    vm1.vm.box = "hashicorp/bionic64"
+    vm1.vm.box = "ubuntu/focal64"
     vm1.vm.hostname = "het-taleS"
     vm1.vm.network "private_network", ip: "192.168.56.110"
     vm1.vm.provider "virtualbox" do |vb|
@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define "het-taleSW" do |vm2|
-    vm2.vm.box = "hashicorp/bionic64"
+    vm2.vm.box = "ubuntu/focal64"
     vm2.vm.hostname = "het-taleSW"
     vm2.vm.network "private_network", ip: "192.168.56.111"
     vm2.vm.provider "virtualbox" do |vb|
